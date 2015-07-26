@@ -5,6 +5,10 @@ import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
@@ -41,6 +45,35 @@ class MyEventHandler {
             zbudujDom(pozycjaGracza, world);
 
         }
+//        if (entityEvent.entity instanceof EntityPlayer) {
+//            System.out.println("it's a player!");
+//            World theWorld = entityEvent.world;
+//            EntityPlayer thePlayer = (EntityPlayer) entityEvent.entity;
+//
+//            double blockPosX = thePlayer.posX + 1.0;
+//            double blockPosY = thePlayer.posY;
+//            double blockPosZ = thePlayer.posZ;
+//
+//            theWorld.setBlockState(new BlockPos(blockPosX, blockPosY, blockPosZ), Blocks.diamond_block.getDefaultState());
+//
+//            BlockPos chestPosition = new BlockPos(blockPosX, blockPosY + 1.0, blockPosZ);
+//            theWorld.setBlockState(chestPosition, Blocks.chest.getDefaultState());
+//
+//            TileEntity te = theWorld.getTileEntity(chestPosition);
+//            if (te instanceof TileEntityChest) {
+//                TileEntityChest chest = (TileEntityChest) te;
+//                chest.setInventorySlotContents(0, new ItemStack(Item.getByNameOrId("minecraft:diamond_sword"), 64));
+//                chest.setInventorySlotContents(1, new ItemStack(Item.getByNameOrId("minecraft:diamond_pickaxe"), 64));
+//                chest.setInventorySlotContents(2, new ItemStack(Item.getByNameOrId("minecraft:diamond_leggings"), 64));
+//                chest.setInventorySlotContents(3, new ItemStack(Item.getByNameOrId("minecraft:diamond_helmet"), 64));
+//                chest.setInventorySlotContents(4, new ItemStack(Item.getByNameOrId("minecraft:diamond_chestplate"), 64));
+//                chest.setInventorySlotContents(5, new ItemStack(Item.getByNameOrId("minecraft:diamond_boots"), 64));
+//                for (int i = 0; i < 10; i++) {
+//                    chest.setInventorySlotContents(5 + i, new ItemStack(Item.getByNameOrId("minecraft:torch"), 64));
+//                }
+//            }
+//
+//        }
     }
 
     private void zbudujDom(BlockPos pozycjaGracza, World swiat) {
