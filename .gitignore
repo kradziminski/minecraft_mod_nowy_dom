@@ -8,6 +8,9 @@ build/
 .idea/
 *.iml
 
+# Minecraft
+eclipse/
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
