@@ -41,39 +41,10 @@ class MyEventHandler {
             EntityPlayer player = (EntityPlayer) entityEvent.entity;
 
             BlockPos pozycjaGracza = new BlockPos(player.posX, player.posY, player.posZ);
-            BlockPos pozycjaPowietrza = new BlockPos(player.posX,player.posY,player.posZ);
             zbudujDom(pozycjaGracza, world);
 
         }
-//        if (entityEvent.entity instanceof EntityPlayer) {
-//            System.out.println("it's a player!");
-//            World theWorld = entityEvent.world;
-//            EntityPlayer thePlayer = (EntityPlayer) entityEvent.entity;
-//
-//            double blockPosX = thePlayer.posX + 1.0;
-//            double blockPosY = thePlayer.posY;
-//            double blockPosZ = thePlayer.posZ;
-//
-//            theWorld.setBlockState(new BlockPos(blockPosX, blockPosY, blockPosZ), Blocks.diamond_block.getDefaultState());
-//
-//            BlockPos chestPosition = new BlockPos(blockPosX, blockPosY + 1.0, blockPosZ);
-//            theWorld.setBlockState(chestPosition, Blocks.chest.getDefaultState());
-//
-//            TileEntity te = theWorld.getTileEntity(chestPosition);
-//            if (te instanceof TileEntityChest) {
-//                TileEntityChest chest = (TileEntityChest) te;
-//                chest.setInventorySlotContents(0, new ItemStack(Item.getByNameOrId("minecraft:diamond_sword"), 64));
-//                chest.setInventorySlotContents(1, new ItemStack(Item.getByNameOrId("minecraft:diamond_pickaxe"), 64));
-//                chest.setInventorySlotContents(2, new ItemStack(Item.getByNameOrId("minecraft:diamond_leggings"), 64));
-//                chest.setInventorySlotContents(3, new ItemStack(Item.getByNameOrId("minecraft:diamond_helmet"), 64));
-//                chest.setInventorySlotContents(4, new ItemStack(Item.getByNameOrId("minecraft:diamond_chestplate"), 64));
-//                chest.setInventorySlotContents(5, new ItemStack(Item.getByNameOrId("minecraft:diamond_boots"), 64));
-//                for (int i = 0; i < 10; i++) {
-//                    chest.setInventorySlotContents(5 + i, new ItemStack(Item.getByNameOrId("minecraft:torch"), 64));
-//                }
-//            }
-//
-//        }
+
     }
 
     private void zbudujDom(BlockPos pozycjaGracza, World swiat) {
@@ -84,8 +55,33 @@ class MyEventHandler {
         zbudujPrawaSciane(pozycjaGracza, swiat);
         zbudujDach(pozycjaGracza, swiat);
         wypelnijwnetrze(pozycjaGracza, swiat);
+        dodajSkrzynke(pozycjaGracza,swiat);
 
     }
+
+    private void dodajSkrzynke(BlockPos pozycjaGracza, World swiat){
+        double skrzynkaPozX = pozycjaGracza.getX() + 1.0;
+        double skrzynkaPozY = pozycjaGracza.getY();
+        double skrzynkaPozZ = pozycjaGracza.getZ();
+
+        BlockPos pozycjaSkrzynki = new BlockPos(skrzynkaPozX+2, skrzynkaPozY + 1.0, skrzynkaPozZ+3);
+        swiat.setBlockState(pozycjaSkrzynki, Blocks.chest.getDefaultState());
+
+        TileEntity byt = swiat.getTileEntity(pozycjaSkrzynki);
+        if (byt instanceof TileEntityChest) {
+            TileEntityChest skrzynka = (TileEntityChest) byt;
+            skrzynka.setInventorySlotContents(0, new ItemStack(Item.getByNameOrId("minecraft:diamond_sword"), 64));
+            skrzynka.setInventorySlotContents(1, new ItemStack(Item.getByNameOrId("minecraft:diamond_pickaxe"), 64));
+            skrzynka.setInventorySlotContents(2, new ItemStack(Item.getByNameOrId("minecraft:diamond_leggings"), 64));
+            skrzynka.setInventorySlotContents(3, new ItemStack(Item.getByNameOrId("minecraft:diamond_helmet"), 64));
+            skrzynka.setInventorySlotContents(4, new ItemStack(Item.getByNameOrId("minecraft:diamond_chestplate"), 64));
+            skrzynka.setInventorySlotContents(5, new ItemStack(Item.getByNameOrId("minecraft:diamond_boots"), 64));
+            for (int i = 0; i < 10; i++) {
+                skrzynka.setInventorySlotContents(5 + i, new ItemStack(Item.getByNameOrId("minecraft:torch"), 64));
+            }
+        }
+    }
+
 
     private void zbudujPodloge(BlockPos pozycjaGracza, World swiat){
         for (int i=0;i<10;i++) {
