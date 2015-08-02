@@ -60,11 +60,11 @@ class MyEventHandler {
     }
 
     private void dodajSkrzynke(BlockPos pozycjaGracza, World swiat){
-        double skrzynkaPozX = pozycjaGracza.getX() + 1.0;
-        double skrzynkaPozY = pozycjaGracza.getY();
-        double skrzynkaPozZ = pozycjaGracza.getZ();
+        double skrzynkaPozX = pozycjaGracza.getX() + 2.0;
+        double skrzynkaPozY = pozycjaGracza.getY() + 1.0;
+        double skrzynkaPozZ = pozycjaGracza.getZ() + 1.0;
 
-        BlockPos pozycjaSkrzynki = new BlockPos(skrzynkaPozX+2, skrzynkaPozY + 1.0, skrzynkaPozZ+3);
+        BlockPos pozycjaSkrzynki = new BlockPos(skrzynkaPozX, skrzynkaPozY, skrzynkaPozZ);
         swiat.setBlockState(pozycjaSkrzynki, Blocks.chest.getDefaultState());
 
         TileEntity byt = swiat.getTileEntity(pozycjaSkrzynki);
