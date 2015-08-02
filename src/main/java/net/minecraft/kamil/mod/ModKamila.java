@@ -12,7 +12,7 @@ public class ModKamila
     public static final String MODID = "mod_kamila";
     public static final String VERSION = "1.0";
 
-    @SidedProxy(clientSide="com.bedrockminer.tutorial.ClientProxy", serverSide="com.bedrockminer.tutorial.ServerProxy")
+    @SidedProxy(clientSide="net.minecraft.kamil.mod.ClientProxy", serverSide="net.minecraft.kamil.mod.ServerProxy")
     public static CommonProxy proxy;
     
     @EventHandler
