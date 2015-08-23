@@ -86,7 +86,7 @@ class BudowniczyDomow {
         for(int i=0;i<5;i++) {
             double posY=pozycjaGracza.getY()+i;
             for (int j = 0; j < 10; j++) {
-                BlockPos pozycjaObsidian = new BlockPos(pozycjaGracza.getX() + 1 + j, posY, pozycjaGracza.getZ()+10);
+                BlockPos pozycjaObsidian = new BlockPos(pozycjaGracza.getX() + 1 + j, posY, pozycjaGracza.getZ()+9);
                 swiat.setBlockState(pozycjaObsidian, Blocks.obsidian.getDefaultState());
             }
         }
@@ -119,7 +119,7 @@ class BudowniczyDomow {
         for (int i=0;i<10;i++) {
             double posZ = pozycjaGracza.getZ() + i;
             for (int j = 0; j < 10; j++) {
-                BlockPos pozycjaObsidian = new BlockPos(pozycjaGracza.getX() +j, pozycjaGracza.getY()+5, posZ);
+                BlockPos pozycjaObsidian = new BlockPos(pozycjaGracza.getX()+1 +j, pozycjaGracza.getY()+5, posZ);
                 swiat.setBlockState(pozycjaObsidian, Blocks.obsidian.getDefaultState());
             }
         }
@@ -128,7 +128,7 @@ class BudowniczyDomow {
     private void wypelnijwnetrze(BlockPos pozycjaGracza, World swiat){
         for(int i=1;i<5;i++) {
             double posY=pozycjaGracza.getY()+i;
-            for (int j = 1; j < 10; j++) {
+            for (int j = 1; j < 9; j++) {
                 double posZ = pozycjaGracza.getZ() + j;
                 for (int k = 1; k < 9; k++) {
                     BlockPos pozycjaPowietrza = new BlockPos(pozycjaGracza.getX()+1+k, posY, posZ);
